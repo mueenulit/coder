@@ -1,0 +1,16 @@
+https:// {
+    reverse_proxy 127.0.0.1:8080
+    tls {
+        issuer acme {
+          email your-email@domain.com
+        }
+        # remove the following line to disable
+        # fallback to self-signed certificates
+        issuer internal
+
+        # this generates certificates on demand 
+        # (including subdomains) without requiring
+        # a certificate signing request
+        on_demand
+    }
+}
